@@ -1,0 +1,12 @@
+// fn3CEE_681D
+// Return size: 0
+define fn3CEE_681D
+fn3CEE_681D_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_681D
+l3CEE_681D:
+	__halt()
+fn3CEE_681D_exit:
+
+

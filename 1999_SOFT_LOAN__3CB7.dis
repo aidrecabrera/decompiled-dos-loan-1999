@@ -1,0 +1,39 @@
+// fn3CB7_0000
+// Return size: 4
+define fn3CB7_0000
+fn3CB7_0000_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CB7_0000
+l3CB7_0000:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	bx = bx ^ bx
+	SZ = cond(bx)
+	O = false
+	C = false
+	ax = 0<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bx
+	ax = 0x4CA1<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bx
+	ax = 0x1D<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = cs
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn3BC2_0000 (retsize: 4;)
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CB7_0000_exit
+fn3CB7_0000_exit:
+
+

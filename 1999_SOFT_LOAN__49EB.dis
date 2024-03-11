@@ -1,0 +1,653 @@
+// fn3CEE_D021
+// Return size: 4
+define fn3CEE_D021
+fn3CEE_D021_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_D021
+l3CEE_D021:
+	v8 = Mem0[ds:bx + 0x499<16> + di:byte] + cl
+	Mem0[ds:bx + 0x499<16> + di:byte] = v8
+	SCZO = cond(v8)
+	v11 = Mem0[ds:bx + 0xA<16> + di:byte] + bl
+	Mem0[ds:bx + 0xA<16> + di:byte] = v11
+	SCZO = cond(v11)
+	dx_ax = CONVERT(ax, int16, int32)
+	ax = ax + 0x9900<16> + C
+	SCZO = cond(ax)
+	si = si + 1<16>
+	SZO = cond(si)
+	cl = cl + cl
+	SCZO = cond(cl)
+	al = al + 0<8>
+	SCZO = cond(al)
+	FPUF = cond(ST[Top:real64] - Mem0[ds:di:real32])
+	Top = Top + 1<i8>
+	v22 = Mem0[ss:bp - 40<i16>:byte] + al
+	Mem0[ss:bp - 40<i16>:byte] = v22
+	SCZO = cond(v22)
+	branch Test(ULE,CZ) l3CEE_D039
+	// succ:  l3CEE_D039 l3CEE_D039
+l3CEE_D039:
+	Mem0[ss:bp + 0x78<16>:word16] = bx
+	v24 = Mem0[ss:bp - 40<i16> + si:word16] >>u cl
+	Mem0[ss:bp - 40<i16> + si:word16] = v24
+	SCZO = cond(v24)
+	branch Test(UGT,CZ) l3CEE_D042
+	// succ:  l3CEE_D042 l3CEE_D042
+l3CEE_D042:
+	Mem0[ds:bx + 0x7E01<16>:word16] = dx
+	v26 = Mem0[ss:bp + 0x77<16>:byte] + bl
+	Mem0[ss:bp + 0x77<16>:byte] = v26
+	SCZO = cond(v26)
+	v27 = Mem0[ds:bx + 0x7E01<16>:byte]
+	Mem0[ds:bx + 0x7E01<16>:byte] = dl
+	dl = v27
+	v29 = Mem0[ss:bp + 0x7A9E<16>:byte] + al
+	Mem0[ss:bp + 0x7A9E<16>:byte] = v29
+	SCZO = cond(v29)
+	v30 = Mem0[ss:bp + si:byte] + cl
+	Mem0[ss:bp + si:byte] = v30
+	SCZO = cond(v30)
+	dx_ax = CONVERT(ax, int16, int32)
+	al = al + Mem0[ds:bx + si:byte]
+	SCZO = cond(al)
+	SCZO = ah
+	branch Test(UGT,CZ) l3CEE_D05A
+	// succ:  l3CEE_D05A l3CEE_D05A
+l3CEE_D05A:
+	Z = __arpl(Mem0[ss:bp + 0xD886<16>:word16], bx, &Mem0[ss:bp + 0xD886<16>:word16])
+	branch Test(NS,S) l3CEE_D060
+	// succ:  l3CEE_D060 l3CEE_D060
+l3CEE_D060:
+	Mem0[ds:bx + 0x7E01<16>:word16] = dx
+	v34 = Mem0[ss:bp + 0x77<16>:byte] + bl
+	Mem0[ss:bp + 0x77<16>:byte] = v34
+	SCZO = cond(v34)
+	v35 = Mem0[ds:bx + 0x7E01<16>:byte]
+	Mem0[ds:bx + 0x7E01<16>:byte] = dl
+	dl = v35
+	v36 = Mem0[ss:bp + 0x7A9E<16>:byte] + al
+	Mem0[ss:bp + 0x7A9E<16>:byte] = v36
+	SCZO = cond(v36)
+	cl = cl + cl
+	SCZO = cond(cl)
+	al = al + Mem0[ds:bx + si:byte]
+	SCZO = cond(al)
+	ST[Top:real64] = CONVERT(Mem0[ds:si:real32], real32, real64) / ST[Top:real64]
+	si = si + 1<16>
+	SZO = cond(si)
+	ST[Top:real64] = CONVERT(Mem0[ss:bp + di:real32], real32, real64) / ST[Top:real64]
+	Mem0[ds:bx + 0x5C01<16>:word16] = dx
+	v37 = Mem0[ss:bp + 0x77<16>:byte] + bl
+	Mem0[ss:bp + 0x77<16>:byte] = v37
+	SCZO = cond(v37)
+	v38 = Mem0[ds:bx + 0x5C01<16>:byte]
+	Mem0[ds:bx + 0x5C01<16>:byte] = dl
+	dl = v38
+	v39 = Mem0[ss:bp + 0x7A9E<16>:byte] + al
+	Mem0[ss:bp + 0x7A9E<16>:byte] = v39
+	SCZO = cond(v39)
+	v40 = Mem0[ss:bp + si:byte] + cl
+	Mem0[ss:bp + si:byte] = v40
+	SCZO = cond(v40)
+	dx_ax = CONVERT(ax, int16, int32)
+	al = al + Mem0[ds:bx + si:byte]
+	SCZO = cond(al)
+	SCZO = ah
+	branch Test(UGT,CZ) l3CEE_D093
+	// succ:  l3CEE_D093 l3CEE_D093
+l3CEE_D093:
+	Z = __arpl(Mem0[ss:bp + 0xD886<16>:word16], bx, &Mem0[ss:bp + 0xD886<16>:word16])
+	branch Test(GE,SO) l3CEE_D099
+	// succ:  l3CEE_D099 l3CEE_D099
+l3CEE_D099:
+	Mem0[ds:bx + 0x5C01<16>:word16] = dx
+	v42 = Mem0[ss:bp + 0x77<16>:byte] + bl
+	Mem0[ss:bp + 0x77<16>:byte] = v42
+	SCZO = cond(v42)
+	v43 = Mem0[ds:bx + 0x5C01<16>:byte]
+	Mem0[ds:bx + 0x5C01<16>:byte] = dl
+	dl = v43
+	v44 = Mem0[ss:bp + 0x7A9E<16>:byte] + al
+	Mem0[ss:bp + 0x7A9E<16>:byte] = v44
+	SCZO = cond(v44)
+	cl = cl + cl
+	SCZO = cond(cl)
+	al = al + Mem0[ds:bx + si:byte]
+	SCZO = cond(al)
+	ST[Top:real64] = CONVERT(Mem0[ds:si:real32], real32, real64) / ST[Top:real64]
+	si = si + 1<16>
+	SZO = cond(si)
+	ST[Top:real64] = CONVERT(Mem0[ss:bp:real32], real32, real64) / ST[Top:real64]
+	Mem0[ss:bp + 0x7A<16>:word16] = bx
+	SCZO = ah
+	branch Test(NS,S) l3CEE_D0BB
+	// succ:  l3CEE_D0BB l3CEE_D0BB
+l3CEE_D0BB:
+	SCZO = ah
+	branch Test(PO,P) l3CEE_D0BE
+	// succ:  l3CEE_D0BE l3CEE_D0BE
+l3CEE_D0BE:
+	SCZO = ah
+	branch Test(NS,S) l3CEE_D0C1
+	// succ:  l3CEE_D0C1 l3CEE_D0C1
+l3CEE_D0C1:
+	__out<word16>(dx, ax)
+	si = si + 2<i16>
+	al = Mem0[ds:bx + CONVERT(al, uint8, uint16):byte]
+	ST[Top:real64] = CONVERT(Mem0[ds:bx:real32], real32, real64) / ST[Top:real64]
+	Mem0[ss:bp + 0x7A<16>:word16] = bx
+	SCZO = ah
+	branch Test(GE,SO) l3CEE_D0CD
+	// succ:  l3CEE_D0CD l3CEE_D0CD
+l3CEE_D0CD:
+	SCZO = ah
+	branch Test(LE,SZO) l3CEE_D0D0
+	// succ:  l3CEE_D0D0 l3CEE_D0D0
+l3CEE_D0D0:
+	SCZO = ah
+	branch Test(GE,SO) l3CEE_D0D3
+	// succ:  l3CEE_D0D3 l3CEE_D0D3
+l3CEE_D0D3:
+	__out<word16>(dx, ax)
+	si = si + 2<i16>
+	al = Mem0[ds:bx + CONVERT(al, uint8, uint16):byte]
+	ST[Top:real64] = ST[Top:real64] + CONVERT(Mem0[ds:(bx + 0x8900<16>) + si:real32], real32, real64)
+	v46 = di
+	di = ax
+	ax = v46
+	v48 = Mem0[ds:bx + 47<i16>:byte] - dh - C
+	Mem0[ds:bx + 47<i16>:byte] = v48
+	SCZO = cond(v48)
+	__out<byte>(dx, al)
+	si = si + 1<i16>
+	v49 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v49
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v52 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v52
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v53 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v53
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v54 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v54
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v55 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v55
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v56 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v56
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v57 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v57
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v58 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v58
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v59 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v59
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v60 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v60
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v61 = Mem0[ds:bx + si:byte] & al
+	Mem0[ds:bx + si:byte] = v61
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	dx = 0x499<16>
+	v62 = Mem0[ds:bx + 0xA<16> + di:byte] + bl
+	Mem0[ds:bx + 0xA<16> + di:byte] = v62
+	SCZO = cond(v62)
+	dx_ax = CONVERT(ax, int16, int32)
+	ax = ax + 0x9900<16> + C
+	SCZO = cond(ax)
+	si = si + 1<16>
+	SZO = cond(si)
+	v63 = Mem0[ds:0xB<16>:byte] + dh
+	Mem0[ds:0xB<16>:byte] = v63
+	SCZO = cond(v63)
+	v64 = di
+	di = ax
+	ax = v64
+	v66 = Mem0[ss:bp + 47<i16>:byte] - ch - C
+	Mem0[ss:bp + 47<i16>:byte] = v66
+	SCZO = cond(v66)
+	branch Test(UGT,CZ) l3CEE_D12A
+	// succ:  l3CEE_D10A l3CEE_D12A
+l3CEE_D10A:
+	v67 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v67
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v68 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v68
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v69 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v69
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	// succ:  l3CEE_D10E_thunk_fn3CEE_D10F
+l3CEE_D10E_thunk_fn3CEE_D10F:
+	call fn3CEE_D10F (retsize: 0;)
+	return
+	// succ:  fn3CEE_D021_exit
+l3CEE_D126_thunk_fn3CEE_D129:
+	call fn3CEE_D129 (retsize: 0;)
+	return
+	// succ:  fn3CEE_D021_exit
+l3CEE_D12A:
+	dx_ax = CONVERT(ax, int16, int32)
+	al = al + Mem0[ds:bx + si:byte]
+	SCZO = cond(al)
+	// succ:  l3CEE_D12B_thunk_fn3CEE_D129
+l3CEE_D12B_thunk_fn3CEE_D129:
+	call fn3CEE_D129 (retsize: 0;)
+	return
+	// succ:  fn3CEE_D021_exit
+fn3CEE_D021_exit:
+
+
+// fn3CEE_D10F
+// Return size: 0
+define fn3CEE_D10F
+fn3CEE_D10F_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_D10F
+l3CEE_D10F:
+	v8 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v8
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v12 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v12
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v13 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v13
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v14 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v14
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v15 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v15
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v16 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v16
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v17 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v17
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v19 = Mem0[ds:bx + si:byte] & al
+	Mem0[ds:bx + si:byte] = v19
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	dx = 0x499<16>
+	v23 = Mem0[ds:bx + 0x50<16> + di:byte] + bl
+	Mem0[ds:bx + 0x50<16> + di:byte] = v23
+	SCZO = cond(v23)
+	SCZO = ah
+	branch Test(GT,SZO) l3CEE_D127_thunk_fn3CEE_D129
+	goto l3CEE_D127_thunk_fn3CEE_D129
+	// succ:  l3CEE_D127_thunk_fn3CEE_D129 l3CEE_D127_thunk_fn3CEE_D129
+l3CEE_D10F:
+	v27 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v27
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v28 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v28
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v29 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v29
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v30 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v30
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v31 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v31
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v32 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v32
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v33 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v33
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v37 = Mem0[ss:bp + 0x499<16> + si:byte] + bh
+	Mem0[ss:bp + 0x499<16> + si:byte] = v37
+	SCZO = cond(v37)
+	v38 = Mem0[ds:bx + 0x50<16> + di:byte] + bl
+	Mem0[ds:bx + 0x50<16> + di:byte] = v38
+	SCZO = cond(v38)
+	SCZO = ah
+	branch Test(GT,SZO) l3CEE_D129
+	// succ:  l3CEE_D126_thunk_fn3CEE_D129 l3CEE_D126_thunk_fn3CEE_D129
+l3CEE_D126_thunk_fn3CEE_D129:
+	call fn3CEE_D129 (retsize: 0;)
+	return
+	// succ:  fn3CEE_D10F_exit
+l3CEE_D127_thunk_fn3CEE_D129:
+	call fn3CEE_D129 (retsize: 0;)
+	return
+	// succ:  fn3CEE_D10F_exit
+l3CEE_D127_thunk_fn3CEE_D129:
+	call fn3CEE_D129 (retsize: 0;)
+	return
+	// succ:  fn3CEE_D10F_exit
+fn3CEE_D10F_exit:
+
+
+// fn3CEE_D129
+// Return size: 0
+define fn3CEE_D129
+fn3CEE_D129_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_D129
+l3CEE_D129:
+	Z = __arpl(Mem0[ds:bx + 2<16> + di:word16], bx, &Mem0[ds:bx + 2<16> + di:word16])
+	// succ:  l3CEE_D12D
+l3CEE_D12D:
+	v9 = Mem0[ds:bx - 103<i16>:byte]
+	Mem0[ds:bx - 103<i16>:byte] = ch
+	ch = v9
+	al = al + Mem0[ds:bx + si:byte]
+	SCZO = cond(al)
+	cx = cx - Mem0[ss:(bp + 0x197<16>) + di:word16]
+	SCZO = cond(cx)
+	v17 = Mem0[ds:bx + si:byte] & al
+	Mem0[ds:bx + si:byte] = v17
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	SCZO = ah
+	branch Test(GT,SZO) l3CEE_D13B
+	// succ:  l3CEE_D13B l3CEE_D13B
+l3CEE_D13B:
+	v23 = Mem0[ds:bx + 0x2001<16>:byte]
+	Mem0[ds:bx + 0x2001<16>:byte] = dl
+	dl = v23
+	v25 = Mem0[ss:bp + 0xB17F<16>:byte] + al
+	Mem0[ss:bp + 0xB17F<16>:byte] = v25
+	SCZO = cond(v25)
+	dx_ax = CONVERT(ax, int16, int32)
+	ax = ax + 0x9900<16> + C
+	SCZO = cond(ax)
+	al = al - 0<8> - C
+	SCZO = cond(al)
+	dx = Mem0[ds:bx + 0x2018<16>:word16]
+	v30 = Mem0[ds:bx + di:byte] - bl - C
+	Mem0[ds:bx + di:byte] = v30
+	SCZO = cond(v30)
+	v31 = Mem0[ds:di:byte] & ch
+	Mem0[ds:di:byte] = v31
+	SZ = cond(Mem0[ds:di:byte])
+	O = false
+	C = false
+	v33 = Mem0[ds:di + 111<i16>:byte] & cl
+	Mem0[ds:di + 111<i16>:byte] = v33
+	SZ = cond(Mem0[ds:di + 111<i16>:byte])
+	O = false
+	C = false
+	branch Test(ULE,CZ) l3CEE_D1BB
+	// succ:  l3CEE_D156 l3CEE_D1BB
+l3CEE_D156:
+	v35 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v35
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v36 = Mem0[ds:di + 83<i16>:byte] & al
+	Mem0[ds:di + 83<i16>:byte] = v36
+	SZ = cond(Mem0[ds:di + 83<i16>:byte])
+	O = false
+	C = false
+	bx = bx + 1<16>
+	SZO = cond(bx)
+	v37 = Mem0[ds:di:byte] & ch
+	Mem0[ds:di:byte] = v37
+	SZ = cond(Mem0[ds:di:byte])
+	O = false
+	C = false
+	v38 = Mem0[ds:di + 120<i16>:byte] & al
+	Mem0[ds:di + 120<i16>:byte] = v38
+	SZ = cond(Mem0[ds:di + 120<i16>:byte])
+	O = false
+	C = false
+	si = Mem0[ds:si + 32<i16>:word16] *s 0x7F00<16>
+	SCZO = cond(si)
+	cl = 0x97<8>
+	v39 = Mem0[ss:bp + 47<i16>:byte] - ch - C
+	Mem0[ss:bp + 47<i16>:byte] = v39
+	SCZO = cond(v39)
+	branch Test(UGT,CZ) l3CEE_D198
+	// succ:  l3CEE_D16D l3CEE_D198
+l3CEE_D16D:
+	v40 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v40
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v41 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v41
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v42 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v42
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v43 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v43
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v44 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v44
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v45 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v45
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v46 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v46
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v47 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v47
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v48 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v48
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v49 = Mem0[ds:bx + si:byte] & ah
+	Mem0[ds:bx + si:byte] = v49
+	SZ = cond(Mem0[ds:bx + si:byte])
+	O = false
+	C = false
+	v51 = Mem0[ss:bp + 0xD8DD<16> + si:byte] + bh
+	Mem0[ss:bp + 0xD8DD<16> + si:byte] = v51
+	SCZO = cond(v51)
+	v52 = Mem0[ds:bx + si:word16] + 0x9E89<16>
+	Mem0[ds:bx + si:word16] = v52
+	SCZO = cond(v52)
+	v53 = Mem0[ds:bx + si:byte] + 0x99<8>
+	Mem0[ds:bx + si:byte] = v53
+	SCZO = cond(v53)
+	ax = ax + 0x9900<16>
+	SCZO = cond(ax)
+	ax = ax | Mem0[ds:bx + si:word16]
+	SZ = cond(ax)
+	O = false
+	C = false
+	dx_ax = CONVERT(ax, int16, int32)
+	al = al + 0<8> + C
+	SCZO = cond(al)
+	dx_ax = CONVERT(ax, int16, int32)
+	bp = bp + 1<16>
+	SZO = cond(bp)
+	v54 = Mem0[ds:0x6C9<16>:byte] + bh
+	Mem0[ds:0x6C9<16>:byte] = v54
+	SCZO = cond(v54)
+	goto l3CEE_D19A
+	// succ:  l3CEE_D19A
+l3CEE_D198:
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = es
+	// succ:  l3CEE_D19A
+l3CEE_D19A:
+	al = al + bl
+	SCZO = cond(al)
+	v55 = Mem0[ds:bx + si:byte] + 0x46<8>
+	Mem0[ds:bx + si:byte] = v55
+	SCZO = cond(v55)
+	v56 = Mem0[ss:bp + 0x6D<16>:word16]
+	Mem0[ss:bp + 0x6D<16>:word16] = bx
+	bx = v56
+	dx = 0x499<16>
+	v57 = Mem0[ds:bx + 0xA<16> + di:byte] + bl
+	Mem0[ds:bx + 0xA<16> + di:byte] = v57
+	SCZO = cond(v57)
+	dx_ax = CONVERT(ax, int16, int32)
+	ax = ax + 0x9900<16> + C
+	SCZO = cond(ax)
+	si = si + 1<16>
+	SZO = cond(si)
+	v58 = Mem0[ss:bp + 0x76<16>:byte] + bl
+	Mem0[ss:bp + 0x76<16>:byte] = v58
+	SCZO = cond(v58)
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	ax = ax + 0xD800<16>
+	SCZO = cond(ax)
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	v59 = Mem0[ss:bp - 121<i16>:byte] + al
+	Mem0[ss:bp - 121<i16>:byte] = v59
+	SCZO = cond(v59)
+	// succ:  l3CEE_D1BB
+l3CEE_D1BB:
+	ST[Top:real64] = ST[Top:real64] + CONVERT(Mem0[ds:(bx + 0xEC00<16>) + di:real32], real32, real64)
+	cx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	v60 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v60
+	SCZO = cond(v60)
+	al = al ^ 0<8>
+	SZ = cond(al)
+	O = false
+	C = false
+	v61 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v61
+	SCZO = cond(v61)
+	v62 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v62
+	SCZO = cond(v62)
+	v63 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v63
+	SCZO = cond(v63)
+	v64 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v64
+	SCZO = cond(v64)
+	v65 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v65
+	SCZO = cond(v65)
+	v66 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v66
+	SCZO = cond(v66)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	bx = bx ^ bx
+	SZ = cond(bx)
+	O = false
+	C = false
+	ax = 0<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bx
+	ax = 0x4CF0<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bx
+	ax = 0x1D<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = cs
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn3BC2_0000 (retsize: 4;)
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CEE_D129_exit
+fn3CEE_D129_exit:
+
+

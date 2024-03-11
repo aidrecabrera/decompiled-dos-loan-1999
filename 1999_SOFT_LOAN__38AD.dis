@@ -1,0 +1,436 @@
+// fn38AD_0008
+// Return size: 2
+define fn38AD_0008
+fn38AD_0008_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l38AD_0008
+l38AD_0008:
+	SCZO = cond(al - 0x61<8>)
+	branch Test(ULT,C) l38AD_0012
+	// succ:  l38AD_000C l38AD_0012
+l38AD_000C:
+	SCZO = cond(al - 0x7A<8>)
+	branch Test(UGT,CZ) l38AD_0012
+	// succ:  l38AD_0010 l38AD_0012
+l38AD_0010:
+	al = al & 0x5F<8>
+	SZ = cond(al)
+	O = false
+	C = false
+	// succ:  l38AD_0012
+l38AD_0012:
+	return
+	// succ:  fn38AD_0008_exit
+fn38AD_0008_exit:
+
+
+// fn38AD_001E
+// Return size: 4
+define fn38AD_001E
+fn38AD_001E_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l38AD_001E
+l38AD_001E:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	al = Mem0[ss:bp + 10<i16>:byte]
+	call fn38AD_0008 (retsize: 2;)
+	ah = 0<8>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn38AD_001E_exit
+fn38AD_001E_exit:
+
+
+// fn38AD_0040
+// Return size: 4
+define fn38AD_0040
+fn38AD_0040_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l38AD_0040
+l38AD_0040:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	al = Mem0[ss:bp + 10<i16>:byte]
+	bx = 0<16>
+	SCZO = cond(al - 0x41<8>)
+	branch Test(ULT,C) l38AD_005E
+	// succ:  l38AD_004F l38AD_005E
+l38AD_004F:
+	SCZO = cond(al - 0x5A<8>)
+	branch Test(ULE,CZ) l38AD_005B
+	// succ:  l38AD_0053 l38AD_005B
+l38AD_0053:
+	SCZO = cond(al - 0x61<8>)
+	branch Test(ULT,C) l38AD_005E
+	// succ:  l38AD_0057 l38AD_005E
+l38AD_0057:
+	SCZO = cond(al - 0x7A<8>)
+	branch Test(UGT,CZ) l38AD_005E
+	// succ:  l38AD_005B l38AD_005E
+l38AD_005B:
+	bx = bx | 1<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	// succ:  l38AD_005E
+l38AD_005E:
+	SCZO = cond(al - 0x30<8>)
+	branch Test(ULT,C) l38AD_0069
+	// succ:  l38AD_0062 l38AD_0069
+l38AD_0062:
+	SCZO = cond(al - 0x39<8>)
+	branch Test(UGT,CZ) l38AD_0069
+	// succ:  l38AD_0066 l38AD_0069
+l38AD_0066:
+	bx = bx | 2<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	// succ:  l38AD_0069
+l38AD_0069:
+	SCZO = cond(al - 0x20<8>)
+	branch Test(EQ,Z) l38AD_0071
+	// succ:  l38AD_006D l38AD_0071
+l38AD_006D:
+	SCZO = cond(al - 9<8>)
+	branch Test(NE,Z) l38AD_0074
+	// succ:  l38AD_0071 l38AD_0074
+l38AD_0071:
+	bx = bx | 4<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	// succ:  l38AD_0074
+l38AD_0074:
+	SCZO = cond(al - 0x59<8>)
+	branch Test(EQ,Z) l38AD_0084
+	// succ:  l38AD_0078 l38AD_0084
+l38AD_0078:
+	SCZO = cond(al - 0x79<8>)
+	branch Test(EQ,Z) l38AD_0084
+	// succ:  l38AD_007C l38AD_0084
+l38AD_007C:
+	SCZO = cond(al - 0x54<8>)
+	branch Test(EQ,Z) l38AD_0084
+	// succ:  l38AD_0080 l38AD_0084
+l38AD_0080:
+	SCZO = cond(al - 0x74<8>)
+	branch Test(NE,Z) l38AD_0087
+	// succ:  l38AD_0084 l38AD_0087
+l38AD_0084:
+	bx = bx | 8<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	// succ:  l38AD_0087
+l38AD_0087:
+	SCZO = cond(al - 0x4E<8>)
+	branch Test(EQ,Z) l38AD_0097
+	// succ:  l38AD_008B l38AD_0097
+l38AD_008B:
+	SCZO = cond(al - 0x6E<8>)
+	branch Test(EQ,Z) l38AD_0097
+	// succ:  l38AD_008F l38AD_0097
+l38AD_008F:
+	SCZO = cond(al - 0x46<8>)
+	branch Test(EQ,Z) l38AD_0097
+	// succ:  l38AD_0093 l38AD_0097
+l38AD_0093:
+	SCZO = cond(al - 0x66<8>)
+	branch Test(NE,Z) l38AD_009A
+	// succ:  l38AD_0097 l38AD_009A
+l38AD_0097:
+	bx = bx | 0x10<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	// succ:  l38AD_009A
+l38AD_009A:
+	ax = bx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn38AD_0040_exit
+fn38AD_0040_exit:
+
+
+// fn38AD_00CC
+// Return size: 4
+define fn38AD_00CC
+fn38AD_00CC_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l38AD_00CC
+l38AD_00CC:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	bx = 0x239A<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	ax = bx
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn38AD_00CC_exit
+fn38AD_00CC_exit:
+
+
+// fn38AD_00F2
+// Return size: 4
+define fn38AD_00F2
+fn38AD_00F2_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l38AD_00F2
+l38AD_00F2:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	cx = Mem0[ss:bp + 18<i16>:word16]
+	es_di = Mem0[ss:bp + 14<i16>:segptr32]
+	ds_si = Mem0[ss:bp + 10<i16>:segptr32]
+	ax = 0<16>
+	branch cx == 0<16> l38AD_0113
+	// succ:  l38AD_0106 l38AD_0113
+l38AD_0106:
+	D = false
+	cmpResult = memcmp(ds:si, es:di, cx *u32 1<16>)
+	firstDifference = __find_first_difference__(ds:si, es:di)
+	cx = cx - firstDifference
+	si = si + firstDifference
+	di = di + firstDifference
+	SCZO = cond(cmpResult)
+	branch Test(EQ,Z) l38AD_0113
+	// succ:  l38AD_010B l38AD_0113
+l38AD_010B:
+	ax = 1<16>
+	branch Test(UGT,CZ) l38AD_0113
+	// succ:  l38AD_0110 l38AD_0113
+l38AD_0110:
+	ax = 0xFFFF<16>
+	// succ:  l38AD_0113
+l38AD_0113:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn38AD_00F2_exit
+fn38AD_00F2_exit:
+
+
+// fn38AD_0118
+// Return size: 4
+define fn38AD_0118
+fn38AD_0118_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l38AD_0118
+l38AD_0118:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	cx = Mem0[ss:bp + 14<i16>:word16]
+	bx = cx
+	al = 0x20<8>
+	D = false
+	cx = cx | cx
+	SZ = cond(cx)
+	O = false
+	C = false
+	// succ:  l38AD_012A
+l38AD_012A:
+	branch cx == 0<16> l38AD_012C
+	// succ:  l38AD_012A_1 l38AD_012C
+l38AD_012A_1:
+	SCZO = cond(al - Mem0[es:di:byte])
+	di = di + 1<i16>
+	cx = cx - 1<16>
+	branch Test(NE,Z) l38AD_012A
+	// succ:  l38AD_012C l38AD_012A
+l38AD_012C:
+	branch Test(EQ,Z) l38AD_0142
+	// succ:  l38AD_012E l38AD_0142
+l38AD_012E:
+	ah = Mem0[es:di - 1<i16>:byte]
+	SCZO = cond(ah - 9<8>)
+	branch Test(EQ,Z) l38AD_012A
+	// succ:  l38AD_0137 l38AD_012A
+l38AD_0137:
+	SCZO = cond(ah - 0xD<8>)
+	branch Test(EQ,Z) l38AD_012A
+	// succ:  l38AD_013C l38AD_012A
+l38AD_013C:
+	SCZO = cond(ah - 0xA<8>)
+	branch Test(EQ,Z) l38AD_012A
+	// succ:  l38AD_0141 l38AD_012A
+l38AD_0141:
+	cx = cx + 1<16>
+	SZO = cond(cx)
+	// succ:  l38AD_0142
+l38AD_0142:
+	bx = bx - cx
+	SCZO = cond(bx)
+	ax = bx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn38AD_0118_exit
+fn38AD_0118_exit:
+
+
+// fn38AD_014A
+// Return size: 4
+define fn38AD_014A
+fn38AD_014A_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l38AD_014A
+l38AD_014A:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	dx = ds
+	ds_si = Mem0[ss:bp + 10<i16>:segptr32]
+	cx = Mem0[ss:bp + 14<i16>:word16]
+	branch cx == 0<16> l38AD_018E
+	// succ:  l38AD_0159 l38AD_018E
+l38AD_0159:
+	bx = cx
+	al = Mem0[ds:si:byte]
+	si = si + 1<i16>
+	SCZO = cond(al - 0x2D<8>)
+	branch Test(EQ,Z) l38AD_016F
+	// succ:  l38AD_0160 l38AD_016F
+l38AD_0160:
+	SCZO = cond(al - 0x2B<8>)
+	branch Test(EQ,Z) l38AD_016F
+	// succ:  l38AD_0164 l38AD_016F
+l38AD_0164:
+	goto l38AD_0167
+	// succ:  l38AD_0167
+l38AD_0166:
+	al = Mem0[ds:si:byte]
+	si = si + 1<i16>
+	// succ:  l38AD_0167
+l38AD_0167:
+	SCZO = cond(al - 0x30<8>)
+	branch Test(ULT,C) l38AD_0174
+	// succ:  l38AD_016B l38AD_0174
+l38AD_016B:
+	SCZO = cond(al - 0x39<8>)
+	branch Test(UGT,CZ) l38AD_0189
+	// succ:  l38AD_016F l38AD_0189
+l38AD_016F:
+	cx = cx - 1<16>
+	branch cx != 0<16> l38AD_0166
+	// succ:  l38AD_0171 l38AD_0166
+l38AD_0171:
+	goto l38AD_018A
+	// succ:  l38AD_018A
+l38AD_0174:
+	SCZO = cond(al - 0x2E<8>)
+	branch Test(EQ,Z) l38AD_0184
+	// succ:  l38AD_0178 l38AD_0184
+l38AD_0178:
+	goto l38AD_0189
+	// succ:  l38AD_0189
+l38AD_017B:
+	al = Mem0[ds:si:byte]
+	si = si + 1<i16>
+	SCZO = cond(al - 0x30<8>)
+	branch Test(ULT,C) l38AD_0189
+	// succ:  l38AD_0180 l38AD_0189
+l38AD_0180:
+	SCZO = cond(al - 0x39<8>)
+	branch Test(UGT,CZ) l38AD_0189
+	// succ:  l38AD_0184 l38AD_0189
+l38AD_0184:
+	cx = cx - 1<16>
+	branch cx != 0<16> l38AD_017B
+	// succ:  l38AD_0186 l38AD_017B
+l38AD_0186:
+	goto l38AD_018A
+	// succ:  l38AD_018A
+l38AD_0189:
+	cx = cx - 1<16>
+	SZO = cond(cx)
+	// succ:  l38AD_018A
+l38AD_018A:
+	v19 = bx
+	bx = cx
+	cx = v19
+	cx = cx - bx
+	SCZO = cond(cx)
+	// succ:  l38AD_018E
+l38AD_018E:
+	ds = dx
+	ax = cx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn38AD_014A_exit
+fn38AD_014A_exit:
+
+

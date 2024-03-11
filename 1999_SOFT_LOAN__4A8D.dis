@@ -1,0 +1,83 @@
+// fn3CEE_DA1B
+// Return size: 4
+define fn3CEE_DA1B
+fn3CEE_DA1B_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_DA1B
+l3CEE_DA1B:
+	SCZO = cond(bx - Mem0[ds:(bx - 87<i16>) + di:word16])
+	al = al + Mem0[ds:bx + si:byte]
+	SCZO = cond(al)
+	branch Test(EQ,Z) l3CEE_DA3C
+	// succ:  l3CEE_DA22 l3CEE_DA3C
+l3CEE_DA22:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ss
+	ax = bp - 6<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = 1<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn3B5D_0306 (retsize: 4;)
+	cx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn2017_040F (retsize: 4;)
+	sp = sp + 6<16>
+	SCZO = cond(sp)
+	goto l3CEE_DA4C
+	// succ:  l3CEE_DA4C
+l3CEE_DA3C:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ss
+	ax = bp - 6<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn2017_040F (retsize: 4;)
+	sp = sp + 6<16>
+	SCZO = cond(sp)
+	// succ:  l3CEE_DA4C
+l3CEE_DA4C:
+	ax = Mem0[ss:bp - 4<i16>:word16]
+	dx = dx ^ dx
+	SZ = cond(dx)
+	O = false
+	C = false
+	cx = cx ^ cx
+	SZ = cond(cx)
+	O = false
+	C = false
+	bx = 0x200<16>
+	call fn3CEE_3191 (retsize: 4;)
+	bx = Mem0[ss:bp - 6<i16>:word16]
+	cx = cx ^ cx
+	SZ = cond(cx)
+	O = false
+	C = false
+	call fn3CEE_3191 (retsize: 4;)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = dx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn3B5D_0592 (retsize: 4;)
+	cx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	cx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CEE_DA1B_exit
+fn3CEE_DA1B_exit:
+
+

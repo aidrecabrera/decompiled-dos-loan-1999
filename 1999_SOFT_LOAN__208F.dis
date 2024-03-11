@@ -1,0 +1,325 @@
+// fn208F_000C
+// Return size: 4
+define fn208F_000C
+fn208F_000C_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l208F_000C
+l208F_000C:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	Mem0[ds:0x10CA<16>:word16] = 0<16>
+	ah = 0x30<8>
+	al = msdos_get_dos_version(out ah)
+	SCZO = cond(al - 0<8>)
+	branch Test(NE,Z) l208F_0022
+	// succ:  l208F_001F l208F_0022
+l208F_001F:
+	ax = 1<16>
+	// succ:  l208F_0022
+l208F_0022:
+	bl = ah
+	bh = 0<8>
+	ah = 0x64<8>
+	ax = ah *u16 al
+	SCZO = cond(ax)
+	ax = ax + bx
+	SCZO = cond(ax)
+	Mem0[ds:0x10CE<16>:word16] = ax
+	SCZO = cond(ax - 0x12C<16>)
+	branch Test(UGE,C) l208F_003C
+	// succ:  l208F_0034 l208F_003C
+l208F_0034:
+	Mem0[ds:0x10D0<16>:byte] = 7<8>
+	goto l208F_0051
+	// succ:  l208F_0051
+l208F_003C:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	ah = 0x25<8>
+	al = 0x24<8>
+	dx = 0x208F<16>
+	ds = dx
+	dx = 0x229<16>
+	msdos_set_interrupt_vector(al, ds_dx)
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	Mem0[ds:0x10D0<16>:byte] = 0xFF<8>
+	// succ:  l208F_0051
+l208F_0051:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn208F_000C_exit
+fn208F_000C_exit:
+
+
+// fn208F_00AE
+// Return size: 4
+define fn208F_00AE
+fn208F_00AE_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l208F_00AE
+l208F_00AE:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	Mem0[ds:0x10CA<16>:word16] = 0<16>
+	ah = 0x3E<8>
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	C = msdos_close_file(bx)
+	branch Test(UGE,C) l208F_00C5
+	// succ:  l208F_00C2 l208F_00C5
+l208F_00C2:
+	Mem0[ds:0x10CA<16>:word16] = ax
+	// succ:  l208F_00C5
+l208F_00C5:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn208F_00AE_exit
+fn208F_00AE_exit:
+
+
+// fn208F_00C9
+// Return size: 4
+define fn208F_00C9
+fn208F_00C9_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l208F_00C9
+l208F_00C9:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	Mem0[ds:0x10CA<16>:word16] = 0<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	ah = 0x3F<8>
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	ds_dx = Mem0[ss:bp + 12<i16>:segptr32]
+	cx = Mem0[ss:bp + 16<i16>:word16]
+	C = msdos_read_file(bx, cx, ds_dx, out ax)
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	branch Test(UGE,C) l208F_00EB
+	// succ:  l208F_00E5 l208F_00EB
+l208F_00E5:
+	Mem0[ds:0x10CA<16>:word16] = ax
+	ax = 0<16>
+	// succ:  l208F_00EB
+l208F_00EB:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn208F_00C9_exit
+fn208F_00C9_exit:
+
+
+// fn208F_00EF
+// Return size: 4
+define fn208F_00EF
+fn208F_00EF_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l208F_00EF
+l208F_00EF:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	Mem0[ds:0x10CA<16>:word16] = 0<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	ah = 0x40<8>
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	ds_dx = Mem0[ss:bp + 12<i16>:segptr32]
+	cx = Mem0[ss:bp + 16<i16>:word16]
+	C = msdos_write_file(bx, cx, ds_dx, out ax)
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	branch Test(UGE,C) l208F_0111
+	// succ:  l208F_010B l208F_0111
+l208F_010B:
+	Mem0[ds:0x10CA<16>:word16] = ax
+	ax = 0<16>
+	// succ:  l208F_0111
+l208F_0111:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn208F_00EF_exit
+fn208F_00EF_exit:
+
+
+// fn208F_0115
+// Return size: 4
+define fn208F_0115
+fn208F_0115_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l208F_0115
+l208F_0115:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	Mem0[ds:0x10CA<16>:word16] = 0<16>
+	ah = 0x42<8>
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	dx = Mem0[ss:bp + 12<i16>:word16]
+	cx = Mem0[ss:bp + 14<i16>:word16]
+	al = Mem0[ss:bp + 16<i16>:byte]
+	C = msdos_set_file_position(bx, cx_dx, al, out dx_ax)
+	branch Test(UGE,C) l208F_013B
+	// succ:  l208F_0132 l208F_013B
+l208F_0132:
+	Mem0[ds:0x10CA<16>:word16] = ax
+	ax = 0<16>
+	dx = 0<16>
+	// succ:  l208F_013B
+l208F_013B:
+	bx = ax
+	ax = dx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = bx
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn208F_0115_exit
+fn208F_0115_exit:
+
+
+// fn208F_0147
+// Return size: 4
+define fn208F_0147
+fn208F_0147_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l208F_0147
+l208F_0147:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	Mem0[ds:0x10CA<16>:word16] = 0<16>
+	ah = 0x5C<8>
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	dx = Mem0[ss:bp + 12<i16>:word16]
+	cx = Mem0[ss:bp + 14<i16>:word16]
+	di = Mem0[ss:bp + 16<i16>:word16]
+	si = Mem0[ss:bp + 18<i16>:word16]
+	al = Mem0[ss:bp + 20<i16>:byte]
+	__syscall<byte>(0x21<8>)
+	branch Test(UGE,C) l208F_0175
+	// succ:  l208F_016A l208F_0175
+l208F_016A:
+	Mem0[ds:0x10CA<16>:word16] = ax
+	SCZO = cond(ax - 0x21<16>)
+	ax = 0<16>
+	branch Test(EQ,Z) l208F_0178
+	// succ:  l208F_0175 l208F_0178
+l208F_0175:
+	ax = 1<16>
+	// succ:  l208F_0178
+l208F_0178:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn208F_0147_exit
+fn208F_0147_exit:
+
+
+// fn208F_01E6
+// Return size: 4
+define fn208F_01E6
+fn208F_01E6_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l208F_01E6
+l208F_01E6:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	Mem0[ds:0x10CA<16>:word16] = 0<16>
+	dx = 1<16>
+	SCZO = cond(Mem0[ds:0x10CE<16>:word16] - 0x14A<16>)
+	branch Test(ULT,C) l208F_020B
+	// succ:  l208F_01FC l208F_020B
+l208F_01FC:
+	ah = 0x67<8>
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	C = msdos_set_handle_count(bx, out ax)
+	branch Test(UGE,C) l208F_020B
+	// succ:  l208F_0205 l208F_020B
+l208F_0205:
+	Mem0[ds:0x10CA<16>:word16] = ax
+	dx = 0<16>
+	// succ:  l208F_020B
+l208F_020B:
+	ax = dx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn208F_01E6_exit
+fn208F_01E6_exit:
+
+

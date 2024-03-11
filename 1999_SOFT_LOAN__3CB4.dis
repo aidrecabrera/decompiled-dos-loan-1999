@@ -1,0 +1,41 @@
+// fn3CB4_0008
+// Return size: 4
+define fn3CB4_0008
+fn3CB4_0008_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CB4_0008
+l3CB4_0008:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	Mem0[es:di:word16] = ax
+	di = di + 2<i16>
+	ax = 0x4A96<16>
+	Mem0[es:di:word16] = ax
+	di = di + 2<i16>
+	bx = ax
+	ax = 0x4D8E<16>
+	ax = ax - bx
+	SCZO = cond(ax)
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CB4_0008_exit
+fn3CB4_0008_exit:
+
+

@@ -1,0 +1,47 @@
+// fn3CEE_D81B
+// Return size: 0
+define fn3CEE_D81B
+fn3CEE_D81B_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_D81B
+l3CEE_D81B:
+	v8 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v8
+	SCZO = cond(v8)
+	FPUF = cond(ST[Top:real64] - Mem0[ss:bp + 0x4600<16>:real32])
+	Top = Top + 0<i8>
+	v14 = Mem0[ds:bx - 55<i16>:byte] - 0<8>
+	Mem0[ds:bx - 55<i16>:byte] = v14
+	SCZO = cond(v14)
+	al = al + bl
+	SCZO = cond(al)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = SCZDOP
+	v17 = Mem0[ss:bp - 55<i16>:byte] + al
+	Mem0[ss:bp - 55<i16>:byte] = v17
+	SCZO = cond(v17)
+	v18 = Mem0[ds:bx + si:byte] + al
+	Mem0[ds:bx + si:byte] = v18
+	SCZO = cond(v18)
+	FPUF = cond(ST[Top:real64] - Mem0[ss:(bp + 0x4600<16>) + si:real32])
+	Top = Top + 1<i8>
+	bp = bp - Mem0[ds:bx - 40<i16>:word16]
+	SCZO = cond(bp)
+	__wait()
+	v21 = Mem0[ds:bx + 0x9D9E<16> + di:byte] + cl
+	Mem0[ds:bx + 0x9D9E<16> + di:byte] = v21
+	SCZO = cond(v21)
+	v22 = Mem0[ss:bp + 0x9B<16>:byte] + bl
+	Mem0[ss:bp + 0x9B<16>:byte] = v22
+	SCZO = cond(v22)
+	v23 = al
+	al = bl
+	bl = v23
+	__wait()
+	v24 = Mem0[ds:bx - 0x3A7<16> + di:byte] + cl
+	Mem0[ds:bx - 0x3A7<16> + di:byte] = v24
+	SCZO = cond(v24)
+fn3CEE_D81B_exit:
+
+

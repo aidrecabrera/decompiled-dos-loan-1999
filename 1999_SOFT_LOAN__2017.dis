@@ -1,0 +1,1602 @@
+// fn2017_000F
+// Return size: 4
+define fn2017_000F
+fn2017_000F_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_000F
+l2017_000F:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bx
+	ah = 0x48<8>
+	C = msdos_allocate_memory_block(bx)
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	branch Test(ULT,C) l2017_0027
+	// succ:  l2017_001F l2017_0027
+l2017_001F:
+	SCZO = cond(bx - dx)
+	branch Test(NE,Z) l2017_0027
+	// succ:  l2017_0023 l2017_0027
+l2017_0023:
+	bx = bx ^ bx
+	SZ = cond(bx)
+	O = false
+	C = false
+	goto l2017_002B
+	// succ:  l2017_002B
+l2017_0027:
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	bx = ax
+	// succ:  l2017_002B
+l2017_002B:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = bx
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_000F_exit
+fn2017_000F_exit:
+
+
+// fn2017_0033
+// Return size: 4
+define fn2017_0033
+fn2017_0033_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0033
+l2017_0033:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	ah = 0x49<8>
+	C = msdos_free_memory_block(es)
+	branch Test(ULT,C) l2017_0046
+	// succ:  l2017_0041 l2017_0046
+l2017_0041:
+	ax = 1<16>
+	goto l2017_0048
+	// succ:  l2017_0048
+l2017_0046:
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	// succ:  l2017_0048
+l2017_0048:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0033_exit
+fn2017_0033_exit:
+
+
+// fn2017_004C
+// Return size: 4
+define fn2017_004C
+fn2017_004C_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_004C
+l2017_004C:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	al = 0x67<8>
+	ah = 0x35<8>
+	es_bx = msdos_get_interrupt_vector(al)
+	SCZO = cond(Mem0[es:0xA<16>:byte] - 0x45<8>)
+	branch Test(NE,Z) l2017_0070
+	// succ:  l2017_005F l2017_0070
+l2017_005F:
+	SCZO = cond(Mem0[es:0xB<16>:word16] - 0x4D4D<16>)
+	branch Test(NE,Z) l2017_0070
+	// succ:  l2017_0068 l2017_0070
+l2017_0068:
+	ah = 0x42<8>
+	ah = ems_get_number_of_pages(out bx, out dx)
+	ah = ah | ah
+	SZ = cond(ah)
+	O = false
+	C = false
+	branch Test(EQ,Z) l2017_0072
+	// succ:  l2017_0070 l2017_0072
+l2017_0070:
+	bl = 0<8>
+	// succ:  l2017_0072
+l2017_0072:
+	al = 0x10<8>
+	ax = bl *u16 al
+	SCZO = cond(ax)
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_004C_exit
+fn2017_004C_exit:
+
+
+// fn2017_007A
+// Return size: 4
+define fn2017_007A
+fn2017_007A_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_007A
+l2017_007A:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	ah = 0x41<8>
+	ah = ems_get_page_frame_segment(out bx)
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	Mem0[es:di:word16] = 0<16>
+	Mem0[es:di + 2<i16>:word16] = bx
+	al = al ^ al
+	SZ = cond(al)
+	O = false
+	C = false
+	v16 = ah
+	ah = al
+	al = v16
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_007A_exit
+fn2017_007A_exit:
+
+
+// fn2017_0097
+// Return size: 4
+define fn2017_0097
+fn2017_0097_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0097
+l2017_0097:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	ah = 0x43<8>
+	ah = ems_get_handle_and_allocate_memory(bx, out dx)
+	es_di = Mem0[ss:bp + 12<i16>:segptr32]
+	Mem0[es:di:word16] = dx
+	al = al ^ al
+	SZ = cond(al)
+	O = false
+	C = false
+	v17 = ah
+	ah = al
+	al = v17
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0097_exit
+fn2017_0097_exit:
+
+
+// fn2017_00B1
+// Return size: 4
+define fn2017_00B1
+fn2017_00B1_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_00B1
+l2017_00B1:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	dx = Mem0[ss:bp + 10<i16>:word16]
+	bx = Mem0[ss:bp + 12<i16>:word16]
+	ax = Mem0[ss:bp + 14<i16>:word16]
+	ah = 0x44<8>
+	ah = ems_map_memory(al, bx, dx)
+	al = al ^ al
+	SZ = cond(al)
+	O = false
+	C = false
+	v16 = ah
+	ah = al
+	al = v16
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_00B1_exit
+fn2017_00B1_exit:
+
+
+// fn2017_00CB
+// Return size: 4
+define fn2017_00CB
+fn2017_00CB_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_00CB
+l2017_00CB:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	dx = Mem0[ss:bp + 10<i16>:word16]
+	ah = 0x45<8>
+	ah = ems_release_memory(dx)
+	al = al ^ al
+	SZ = cond(al)
+	O = false
+	C = false
+	v14 = ah
+	ah = al
+	al = v14
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_00CB_exit
+fn2017_00CB_exit:
+
+
+// fn2017_00DF
+// Return size: 4
+define fn2017_00DF
+fn2017_00DF_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_00DF
+l2017_00DF:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	ax = es
+	cl = 0xC<8>
+	ax = ax >>u cl
+	SCZO = cond(ax)
+	bx = es
+	cl = 4<8>
+	bx = bx << cl
+	SCZO = cond(bx)
+	bx = bx + di
+	SCZO = cond(bx)
+	ax = ax + 0<16> + C
+	SCZO = cond(ax)
+	bx = bx + Mem0[ss:bp + 14<i16>:word16]
+	SCZO = cond(bx)
+	ax = ax + Mem0[ss:bp + 16<i16>:word16] + C
+	SCZO = cond(ax)
+	dx = bx
+	bx = bx & 0xF<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	cl = 4<8>
+	dx = dx >>u cl
+	SCZO = cond(dx)
+	cl = 0xC<8>
+	ax = ax << cl
+	SCZO = cond(ax)
+	ax = ax | dx
+	SZ = cond(ax)
+	O = false
+	C = false
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = bx
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_00DF_exit
+fn2017_00DF_exit:
+
+
+// fn2017_0132
+// Return size: 4
+define fn2017_0132
+fn2017_0132_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0132
+l2017_0132:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	cl = 4<8>
+	ax = Mem0[ss:bp + 12<i16>:word16]
+	bx = Mem0[ss:bp + 10<i16>:word16]
+	bx = bx >>u cl
+	SCZO = cond(bx)
+	ax = ax + bx
+	SCZO = cond(ax)
+	bx = Mem0[ss:bp + 16<i16>:word16]
+	dx = Mem0[ss:bp + 14<i16>:word16]
+	dx = dx >>u cl
+	SCZO = cond(dx)
+	bx = bx + dx
+	SCZO = cond(bx)
+	SCZO = cond(ax - bx)
+	branch Test(NE,Z) l2017_015F
+	// succ:  l2017_0151 l2017_015F
+l2017_0151:
+	ax = Mem0[ss:bp + 10<i16>:word16]
+	ax = ax & 0xF<16>
+	SZ = cond(ax)
+	O = false
+	C = false
+	bx = Mem0[ss:bp + 14<i16>:word16]
+	bx = bx & 0xF<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	SCZO = cond(ax - bx)
+	// succ:  l2017_015F
+l2017_015F:
+	ax = 0xFFFF<16>
+	branch Test(ULT,C) l2017_0168
+	// succ:  l2017_0164 l2017_0168
+l2017_0164:
+	branch Test(EQ,Z) l2017_0167
+	// succ:  l2017_0166 l2017_0167
+l2017_0166:
+	ax = ax + 1<16>
+	SZO = cond(ax)
+	// succ:  l2017_0167
+l2017_0167:
+	ax = ax + 1<16>
+	SZO = cond(ax)
+	// succ:  l2017_0168
+l2017_0168:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0132_exit
+fn2017_0132_exit:
+
+
+// fn2017_016C
+// Return size: 4
+define fn2017_016C
+fn2017_016C_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_016C
+l2017_016C:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	ds_dx = Mem0[ss:bp + 14<i16>:segptr32]
+	ah = 0x1A<8>
+	msdos_set_DTA(ds_dx)
+	cx = Mem0[ss:bp + 18<i16>:word16]
+	ds_dx = Mem0[ss:bp + 10<i16>:segptr32]
+	ah = 0x4E<8>
+	C = msdos_find_first_file(cx, ds_dx)
+	ax = 1<16>
+	branch Test(UGE,C) l2017_018A
+	// succ:  l2017_0188 l2017_018A
+l2017_0188:
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	// succ:  l2017_018A
+l2017_018A:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_016C_exit
+fn2017_016C_exit:
+
+
+// fn2017_018F
+// Return size: 4
+define fn2017_018F
+fn2017_018F_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_018F
+l2017_018F:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	ds_dx = Mem0[ss:bp + 10<i16>:segptr32]
+	ah = 0x4F<8>
+	C = msdos_find_next_file()
+	ax = 1<16>
+	branch Test(UGE,C) l2017_01A3
+	// succ:  l2017_01A1 l2017_01A3
+l2017_01A1:
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	// succ:  l2017_01A3
+l2017_01A3:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_018F_exit
+fn2017_018F_exit:
+
+
+// fn2017_01A8
+// Return size: 4
+define fn2017_01A8
+fn2017_01A8_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_01A8
+l2017_01A8:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	bx = 0xFFFF<16>
+	ah = 0x48<8>
+	C = msdos_allocate_memory_block(bx)
+	ax = bx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_01A8_exit
+fn2017_01A8_exit:
+
+
+// fn2017_01BA
+// Return size: 4
+define fn2017_01BA
+fn2017_01BA_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_01BA
+l2017_01BA:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	bx = di
+	ds_si = Mem0[ss:bp + 14<i16>:segptr32]
+	// succ:  l2017_01C9
+l2017_01C9:
+	al = Mem0[ds:si:byte]
+	si = si + 1<i16>
+	Mem0[es:di:byte] = al
+	di = di + 1<i16>
+	al = al | al
+	SZ = cond(al)
+	O = false
+	C = false
+	branch Test(NE,Z) l2017_01C9
+	// succ:  l2017_01CF l2017_01C9
+l2017_01CF:
+	ax = es
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = bx
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_01BA_exit
+fn2017_01BA_exit:
+
+
+// fn2017_01DA
+// Return size: 4
+define fn2017_01DA
+fn2017_01DA_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_01DA
+l2017_01DA:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	ds_si = Mem0[ss:bp + 14<i16>:segptr32]
+	cx = Mem0[ss:bp + 18<i16>:word16]
+	branch cx == 0<16> l2017_01F7
+	// succ:  l2017_01EC l2017_01F7
+l2017_01EC:
+	al = Mem0[ds:si:byte]
+	si = si + 1<i16>
+	Mem0[es:di:byte] = al
+	di = di + 1<i16>
+	al = al | al
+	SZ = cond(al)
+	O = false
+	C = false
+	cx = cx - 1<16>
+	branch Test(NE,Z) && cx != 0<16> l2017_01EC
+	// succ:  l2017_01F2 l2017_01EC
+l2017_01F2:
+	Mem0[es:di - 1<i16>:byte] = 0<8>
+	// succ:  l2017_01F7
+l2017_01F7:
+	ax = Mem0[ss:bp + 18<i16>:word16]
+	ax = ax - cx
+	SCZO = cond(ax)
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_01DA_exit
+fn2017_01DA_exit:
+
+
+// fn2017_0228
+// Return size: 4
+define fn2017_0228
+fn2017_0228_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0228
+l2017_0228:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	D = false
+	ax = Mem0[ss:bp + 12<i16>:word16]
+	di = Mem0[ss:bp + 10<i16>:word16]
+	bx = di
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	ax = ax + bx
+	SCZO = cond(ax)
+	di = di & 0xF<16>
+	SZ = cond(di)
+	O = false
+	C = false
+	es = ax
+	al = Mem0[ss:bp + 14<i16>:byte]
+	ah = al
+	cx = Mem0[ss:bp + 16<i16>:word16]
+	cx = cx >>u 1<16>
+	SCZO = cond(cx)
+	// succ:  l2017_024F
+l2017_024F:
+	branch cx == 0<16> l2017_0251
+	// succ:  l2017_024F_1 l2017_0251
+l2017_024F_1:
+	Mem0[es:di:word16] = ax
+	di = di + 2<i16>
+	cx = cx - 1<16>
+	goto l2017_024F
+	// succ:  l2017_024F
+l2017_0251:
+	branch Test(UGE,C) l2017_0254
+	// succ:  l2017_0253 l2017_0254
+l2017_0253:
+	Mem0[es:di:byte] = al
+	di = di + 1<i16>
+	// succ:  l2017_0254
+l2017_0254:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0228_exit
+fn2017_0228_exit:
+
+
+// fn2017_0258
+// Return size: 4
+define fn2017_0258
+fn2017_0258_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0258
+l2017_0258:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	ax = Mem0[ss:bp + 16<i16>:word16]
+	si = Mem0[ss:bp + 14<i16>:word16]
+	bx = si
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	ax = ax + bx
+	SCZO = cond(ax)
+	si = si & 0xF<16>
+	SZ = cond(si)
+	O = false
+	C = false
+	ds = ax
+	dx = Mem0[ss:bp + 12<i16>:word16]
+	di = Mem0[ss:bp + 10<i16>:word16]
+	bx = di
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	dx = dx + bx
+	SCZO = cond(dx)
+	di = di & 0xF<16>
+	SZ = cond(di)
+	O = false
+	C = false
+	es = dx
+	cx = Mem0[ss:bp + 18<i16>:word16]
+	SCZO = cond(ax - dx)
+	branch Test(UGT,CZ) l2017_02E0
+	// succ:  l2017_0294 l2017_02E0
+l2017_0294:
+	branch Test(ULT,C) l2017_02A5
+	// succ:  l2017_0296 l2017_02A5
+l2017_0296:
+	SCZO = cond(si - di)
+	branch Test(UGT,CZ) l2017_02E0
+	// succ:  l2017_029A l2017_02E0
+l2017_029A:
+	bx = cx
+	bx = bx + si
+	SCZO = cond(bx)
+	bx = bx - 1<16>
+	SZO = cond(bx)
+	SCZO = cond(bx - di)
+	branch Test(ULT,C) l2017_02E0
+	// succ:  l2017_02A3 l2017_02E0
+l2017_02A3:
+	goto l2017_02C6
+	// succ:  l2017_02C6
+l2017_02A5:
+	bx = cx
+	bx = bx + si
+	SCZO = cond(bx)
+	bx = bx - 1<16>
+	SZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx >>u 1<16>
+	SCZO = cond(bx)
+	bx = bx + ax
+	SCZO = cond(bx)
+	SCZO = cond(bx - dx)
+	branch Test(ULT,C) l2017_02E0
+	// succ:  l2017_02B8 l2017_02E0
+l2017_02B8:
+	branch Test(UGT,CZ) l2017_02C6
+	// succ:  l2017_02BA l2017_02C6
+l2017_02BA:
+	bx = cx
+	bx = bx + si
+	SCZO = cond(bx)
+	bx = bx - 1<16>
+	SZO = cond(bx)
+	bx = bx & 0xF<16>
+	SZ = cond(bx)
+	O = false
+	C = false
+	SCZO = cond(bx - di)
+	branch Test(ULT,C) l2017_02E0
+	// succ:  l2017_02C6 l2017_02E0
+l2017_02C6:
+	SCZO = cond(cx - 2<16>)
+	branch Test(ULT,C) l2017_02E0
+	// succ:  l2017_02CB l2017_02E0
+l2017_02CB:
+	si = si + cx
+	SCZO = cond(si)
+	si = si - 1<16>
+	SZO = cond(si)
+	si = si - 1<16>
+	SZO = cond(si)
+	di = di + cx
+	SCZO = cond(di)
+	di = di - 1<16>
+	SZO = cond(di)
+	di = di - 1<16>
+	SZO = cond(di)
+	cx = cx >>u 1<16>
+	SCZO = cond(cx)
+	D = true
+	// succ:  l2017_02D6
+l2017_02D6:
+	branch cx == 0<16> l2017_02D8
+	// succ:  l2017_02D6_1 l2017_02D8
+l2017_02D6_1:
+	v23 = Mem0[ds:si:word16]
+	Mem0[es:di:word16] = v23
+	si = si - 2<i16>
+	di = di - 2<i16>
+	cx = cx - 1<16>
+	goto l2017_02D6
+	// succ:  l2017_02D6
+l2017_02D8:
+	D = false
+	branch Test(UGE,C) l2017_02E7
+	// succ:  l2017_02DB l2017_02E7
+l2017_02DB:
+	si = si + 1<16>
+	SZO = cond(si)
+	di = di + 1<16>
+	SZO = cond(di)
+	v24 = Mem0[ds:si:byte]
+	Mem0[es:di:byte] = v24
+	si = si + 1<i16>
+	di = di + 1<i16>
+	goto l2017_02E7
+	// succ:  l2017_02E7
+l2017_02E0:
+	cx = cx >>u 1<16>
+	SCZO = cond(cx)
+	size = cx *u32 2<16>
+	memcpy(es:di, ds:si, size)
+	cx = 0<16>
+	si = si + SLICE(size, word16, 0)
+	di = di + SLICE(size, word16, 0)
+	branch Test(UGE,C) l2017_02E7
+	// succ:  l2017_02E6 l2017_02E7
+l2017_02E6:
+	v22 = Mem0[ds:si:byte]
+	Mem0[es:di:byte] = v22
+	si = si + 1<i16>
+	di = di + 1<i16>
+	// succ:  l2017_02E7
+l2017_02E7:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0258_exit
+fn2017_0258_exit:
+
+
+// fn2017_02EC
+// Return size: 4
+define fn2017_02EC
+fn2017_02EC_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_02EC
+l2017_02EC:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	ds_si = Mem0[ss:bp + 14<i16>:segptr32]
+	cx = Mem0[ss:bp + 18<i16>:word16]
+	cx = cx >>u 1<16>
+	SCZO = cond(cx)
+	size = cx *u32 2<16>
+	memcpy(es:di, ds:si, size)
+	cx = 0<16>
+	si = si + SLICE(size, word16, 0)
+	di = di + SLICE(size, word16, 0)
+	branch Test(UGE,C) l2017_0303
+	// succ:  l2017_0302 l2017_0303
+l2017_0302:
+	v17 = Mem0[ds:si:byte]
+	Mem0[es:di:byte] = v17
+	si = si + 1<i16>
+	di = di + 1<i16>
+	// succ:  l2017_0303
+l2017_0303:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_02EC_exit
+fn2017_02EC_exit:
+
+
+// fn2017_0308
+// Return size: 4
+define fn2017_0308
+fn2017_0308_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0308
+l2017_0308:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	ds_si = Mem0[ss:bp + 14<i16>:segptr32]
+	cx = Mem0[ss:bp + 18<i16>:word16]
+	dx = Mem0[ss:bp + 20<i16>:word16]
+	SCZO = cond(cx - dx)
+	branch Test(UGT,CZ) l2017_0324
+	// succ:  l2017_031F l2017_0324
+l2017_031F:
+	size = cx *u32 1<16>
+	memcpy(es:di, ds:si, size)
+	cx = 0<16>
+	si = si + SLICE(size, word16, 0)
+	di = di + SLICE(size, word16, 0)
+	goto l2017_0330
+	// succ:  l2017_0330
+l2017_0324:
+	v18 = dx
+	dx = cx
+	cx = v18
+	dx = dx - cx
+	SCZO = cond(dx)
+	size = cx *u32 1<16>
+	memcpy(es:di, ds:si, size)
+	cx = 0<16>
+	si = si + SLICE(size, word16, 0)
+	di = di + SLICE(size, word16, 0)
+	cx = dx
+	al = 0x20<8>
+	// succ:  l2017_032E
+l2017_032E:
+	branch cx == 0<16> l2017_0330
+	// succ:  l2017_032E_1 l2017_0330
+l2017_032E_1:
+	Mem0[es:di:byte] = al
+	di = di + 1<i16>
+	cx = cx - 1<16>
+	goto l2017_032E
+	// succ:  l2017_032E
+l2017_0330:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0308_exit
+fn2017_0308_exit:
+
+
+// fn2017_0335
+// Return size: 4
+define fn2017_0335
+fn2017_0335_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0335
+l2017_0335:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	ds_si = Mem0[ss:bp + 10<i16>:segptr32]
+	es_di = Mem0[ss:bp + 14<i16>:segptr32]
+	cx = Mem0[ss:bp + 18<i16>:word16]
+	ax = 0<16>
+	branch cx == 0<16> l2017_0356
+	// succ:  l2017_034A l2017_0356
+l2017_034A:
+	cmpResult = memcmp(ds:si, es:di, cx *u32 1<16>)
+	firstDifference = __find_first_difference__(ds:si, es:di)
+	cx = cx - firstDifference
+	si = si + firstDifference
+	di = di + firstDifference
+	SCZO = cond(cmpResult)
+	branch Test(EQ,Z) l2017_0356
+	// succ:  l2017_034E l2017_0356
+l2017_034E:
+	ax = 1<16>
+	branch Test(GT,SZO) l2017_0356
+	// succ:  l2017_0353 l2017_0356
+l2017_0353:
+	ax = 0xFFFF<16>
+	// succ:  l2017_0356
+l2017_0356:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0335_exit
+fn2017_0335_exit:
+
+
+// fn2017_035B
+// Return size: 4
+define fn2017_035B
+fn2017_035B_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_035B
+l2017_035B:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	cx = Mem0[ss:bp + 14<i16>:word16]
+	branch cx == 0<16> l2017_0377
+	// succ:  l2017_0369 l2017_0377
+l2017_0369:
+	bx = cx
+	al = Mem0[ss:bp + 16<i16>:byte]
+	// succ:  l2017_036E
+l2017_036E:
+	branch cx == 0<16> l2017_0370
+	// succ:  l2017_036E_1 l2017_0370
+l2017_036E_1:
+	SCZO = cond(al - Mem0[es:di:byte])
+	di = di + 1<i16>
+	cx = cx - 1<16>
+	branch Test(EQ,Z) l2017_036E
+	// succ:  l2017_0370 l2017_036E
+l2017_0370:
+	branch Test(NE,Z) l2017_0373
+	// succ:  l2017_0372 l2017_0373
+l2017_0372:
+	cx = cx + 1<16>
+	SZO = cond(cx)
+	// succ:  l2017_0373
+l2017_0373:
+	v18 = cx
+	cx = bx
+	bx = v18
+	cx = cx - bx
+	SCZO = cond(cx)
+	// succ:  l2017_0377
+l2017_0377:
+	ax = cx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_035B_exit
+fn2017_035B_exit:
+
+
+// fn2017_037D
+// Return size: 4
+define fn2017_037D
+fn2017_037D_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_037D
+l2017_037D:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	bx = di
+	ds_si = Mem0[ss:bp + 14<i16>:segptr32]
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	cx = 0xFFFF<16>
+	// succ:  l2017_0391
+l2017_0391:
+	branch cx == 0<16> l2017_0393
+	// succ:  l2017_0391_1 l2017_0393
+l2017_0391_1:
+	SCZO = cond(al - Mem0[es:di:byte])
+	di = di + 1<i16>
+	cx = cx - 1<16>
+	branch Test(EQ,Z) l2017_0391
+	// succ:  l2017_0393 l2017_0391
+l2017_0393:
+	di = di - 1<16>
+	SZO = cond(di)
+	// succ:  l2017_0394
+l2017_0394:
+	al = Mem0[ds:si:byte]
+	si = si + 1<i16>
+	Mem0[es:di:byte] = al
+	di = di + 1<i16>
+	al = al | al
+	SZ = cond(al)
+	O = false
+	C = false
+	branch Test(NE,Z) l2017_0394
+	// succ:  l2017_039A l2017_0394
+l2017_039A:
+	ax = es
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = bx
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_037D_exit
+fn2017_037D_exit:
+
+
+// fn2017_03D0
+// Return size: 4
+define fn2017_03D0
+fn2017_03D0_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_03D0
+l2017_03D0:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	ds_si = Mem0[ss:bp + 10<i16>:segptr32]
+	// succ:  l2017_03DA
+l2017_03DA:
+	al = Mem0[ds:si:byte]
+	si = si + 1<i16>
+	SCZO = cond(al - 0x20<8>)
+	branch Test(EQ,Z) l2017_03DA
+	// succ:  l2017_03DF l2017_03DA
+l2017_03DF:
+	SCZO = cond(al - 9<8>)
+	branch Test(EQ,Z) l2017_03DA
+	// succ:  l2017_03E3 l2017_03DA
+l2017_03E3:
+	SCZO = cond(al - 0xA<8>)
+	branch Test(EQ,Z) l2017_03DA
+	// succ:  l2017_03E7 l2017_03DA
+l2017_03E7:
+	si = si - 1<16>
+	SZO = cond(si)
+	ax = ds
+	bx = si
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	ax = bx
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_03D0_exit
+fn2017_03D0_exit:
+
+
+// fn2017_03F5
+// Return size: 4
+define fn2017_03F5
+fn2017_03F5_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_03F5
+l2017_03F5:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	D = false
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	cx = 0xFFFF<16>
+	al = 0<8>
+	// succ:  l2017_0403
+l2017_0403:
+	branch cx == 0<16> l2017_0405
+	// succ:  l2017_0403_1 l2017_0405
+l2017_0403_1:
+	SCZO = cond(al - Mem0[es:di:byte])
+	di = di + 1<i16>
+	cx = cx - 1<16>
+	branch Test(EQ,Z) l2017_0403
+	// succ:  l2017_0405 l2017_0403
+l2017_0405:
+	ax = cx
+	C = ax != 0<16>
+	ax = -ax
+	SZO = cond(ax)
+	ax = ax - 1<16>
+	SZO = cond(ax)
+	ax = ax - 1<16>
+	SZO = cond(ax)
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_03F5_exit
+fn2017_03F5_exit:
+
+
+// fn2017_040F
+// Return size: 4
+define fn2017_040F
+fn2017_040F_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_040F
+l2017_040F:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	dx = Mem0[ss:bp + 10<i16>:word16]
+	es_di = Mem0[ss:bp + 12<i16>:segptr32]
+	ah = 0x36<8>
+	__syscall<byte>(0x21<8>)
+	Mem0[es:di:word16] = bx
+	Mem0[es:di + 2<i16>:word16] = ax
+	Mem0[es:di + 4<i16>:word16] = dx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_040F_exit
+fn2017_040F_exit:
+
+
+// fn2017_042D
+// Return size: 4
+define fn2017_042D
+fn2017_042D_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_042D
+l2017_042D:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	D = false
+	ds_si = Mem0[ss:bp + 10<i16>:segptr32]
+	cx = 6<16>
+	// succ:  l2017_043A
+l2017_043A:
+	ax = Mem0[ds:si:word16]
+	si = si + 2<i16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	cx = cx - 1<16>
+	branch cx != 0<16> l2017_043A
+	// succ:  l2017_043E l2017_043A
+l2017_043E:
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	cx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	ax = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	__syscall<byte>(0x21<8>)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = SCZDOP
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = dx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = cx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	cx = 6<16>
+	// succ:  l2017_0453
+l2017_0453:
+	ax = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	Mem0[es:di:word16] = ax
+	di = di + 2<i16>
+	cx = cx - 1<16>
+	branch cx != 0<16> l2017_0453
+	// succ:  l2017_0457 l2017_0453
+l2017_0457:
+	ax = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_042D_exit
+fn2017_042D_exit:
+
+
+// fn2017_0489
+// Return size: 4
+define fn2017_0489
+fn2017_0489_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_0489
+l2017_0489:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	cx = 0<16>
+	es_di = Mem0[ss:bp + 10<i16>:segptr32]
+	bx = Mem0[es:di:word16]
+	// succ:  l2017_0497
+l2017_0497:
+	SCZO = cond(cx - bx)
+	branch Test(UGE,C) l2017_04DB
+	// succ:  l2017_049B l2017_04DB
+l2017_049B:
+	dx = cx
+	dx = dx + bx
+	SCZO = cond(dx)
+	dx = dx >>u 1<16>
+	SCZO = cond(dx)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = cx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = dx
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = es
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	si = dx
+	si = si << 1<16>
+	SCZO = cond(si)
+	si = si + di
+	SCZO = cond(si)
+	si = Mem0[es:si + 2<i16>:word16]
+	si = si + 8<16>
+	SCZO = cond(si)
+	si = si + di
+	SCZO = cond(si)
+	v15 = Mem0[ss:bp + 18<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v15
+	v16 = Mem0[ss:bp + 16<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v16
+	v17 = Mem0[ss:bp + 14<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v17
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = es
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	call fn38AD_00F2 (retsize: 4;)
+	sp = sp + 0xA<16>
+	SCZO = cond(sp)
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	es = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	dx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	cx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bx = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	SCZO = cond(ax - 0<16>)
+	branch Test(LE,SZO) l2017_04D6
+	// succ:  l2017_04D2 l2017_04D6
+l2017_04D2:
+	bx = dx
+	goto l2017_0497
+	// succ:  l2017_0497
+l2017_04D6:
+	cx = dx
+	cx = cx + 1<16>
+	SZO = cond(cx)
+	goto l2017_0497
+	// succ:  l2017_0497
+l2017_04DB:
+	ax = cx
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_0489_exit
+fn2017_0489_exit:
+
+
+// fn2017_04E1
+// Return size: 4
+define fn2017_04E1
+fn2017_04E1_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2017_04E1
+l2017_04E1:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = di
+	bp = sp
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	// succ:  l2017_04ED
+l2017_04ED:
+	Mem0[0x2017<16>:0x4E9<16>:word16] = ss
+	Mem0[0x2017<16>:0x4EB<16>:word16] = sp
+	ds_dx = Mem0[ss:bp + 10<i16>:segptr32]
+	es_bx = Mem0[ss:bp + 14<i16>:segptr32]
+	ax = 0x4B00<16>
+	C = msdos_exec(al, ds_dx, es_bx)
+	__cli()
+	ss = Mem0[0x2017<16>:0x4E9<16>:selector]
+	sp = Mem0[0x2017<16>:0x4EB<16>:word16]
+	__sti()
+	branch Test(ULT,C) l2017_0512
+	// succ:  l2017_0510 l2017_0512
+l2017_0510:
+	ax = ax ^ ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	// succ:  l2017_0512
+l2017_0512:
+	ds = Mem0[ss:sp:selector]
+	sp = sp + 2<i16>
+	di = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2017_04E1_exit
+fn2017_04E1_exit:
+
+

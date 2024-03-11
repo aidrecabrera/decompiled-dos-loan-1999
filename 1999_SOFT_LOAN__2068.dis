@@ -1,0 +1,307 @@
+// fn2068_0008
+// Return size: 4
+define fn2068_0008
+fn2068_0008_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2068_0008
+l2068_0008:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	ax = Mem0[ss:bp + 6<i16>:word16]
+	Mem0[ds:0x10A8<16>:word16] = ax
+	ax = ax - ax
+	SCZO = cond(ax)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2068_0008_exit
+fn2068_0008_exit:
+
+
+// fn2068_001C
+// Return size: 4
+define fn2068_001C
+fn2068_001C_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2068_001C
+l2068_001C:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	sp = sp - 4<16>
+	SCZO = cond(sp)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	SCZO = cond(Mem0[ss:bp + 6<i16>:word16] - 0<16>)
+	branch Test(EQ,Z) l2068_0076
+	// succ:  l2068_0029 l2068_0076
+l2068_0029:
+	si = Mem0[ss:bp + 6<i16>:word16]
+	si = si << 1<16>
+	SCZO = cond(si)
+	ax = Mem0[ds:si + 0x10BC<16>:word16]
+	cl = 0xA<8>
+	ax = ax << cl
+	SCZO = cond(ax)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn3CEE_0747 (retsize: 4;)
+	sp = sp + 2<16>
+	SCZO = cond(sp)
+	Mem0[ss:bp - 4<i16>:word16] = ax
+	Mem0[ss:bp - 2<i16>:word16] = dx
+	ax = ax | dx
+	SZ = cond(ax)
+	O = false
+	C = false
+	branch Test(EQ,Z) l2068_006A
+	// succ:  l2068_0049 l2068_006A
+l2068_0049:
+	v16 = Mem0[ds:si + 0x10AE<16>:word16] + 1<16>
+	Mem0[ds:si + 0x10AE<16>:word16] = v16
+	SZO = cond(v16)
+	v18 = Mem0[ss:bp + 6<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v18
+	call fn2068_001C (retsize: 4;)
+	sp = sp + 2<16>
+	SCZO = cond(sp)
+	v19 = Mem0[ss:bp - 2<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v19
+	v20 = Mem0[ss:bp - 4<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v20
+	call fn3CEE_0732 (retsize: 4;)
+	sp = sp + 4<16>
+	SCZO = cond(sp)
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2068_001C_exit
+l2068_006A:
+	ax = Mem0[ss:bp + 6<i16>:word16]
+	ax = ax - 1<16>
+	SZO = cond(ax)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn2068_001C (retsize: 4;)
+	sp = sp + 2<16>
+	SCZO = cond(sp)
+	// succ:  l2068_0076
+l2068_0076:
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2068_001C_exit
+fn2068_001C_exit:
+
+
+// fn2068_007C
+// Return size: 4
+define fn2068_007C
+fn2068_007C_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2068_007C
+l2068_007C:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	sp = sp - 2<16>
+	SCZO = cond(sp)
+	Mem0[ss:bp - 2<i16>:word16] = 0<16>
+	// succ:  l2068_0087
+l2068_0087:
+	bx = Mem0[ss:bp - 2<i16>:word16]
+	bx = bx << 1<16>
+	SCZO = cond(bx)
+	Mem0[ds:bx + 0x10AE<16>:word16] = 0<16>
+	v9 = Mem0[ss:bp - 2<i16>:word16] + 1<16>
+	Mem0[ss:bp - 2<i16>:word16] = v9
+	SZO = cond(v9)
+	SCZO = cond(Mem0[ss:bp - 2<i16>:word16] - 6<16>)
+	branch Test(ULE,CZ) l2068_0087
+	// succ:  l2068_009B l2068_0087
+l2068_009B:
+	ax = 6<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn2068_001C (retsize: 4;)
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2068_007C_exit
+fn2068_007C_exit:
+
+
+// fn2068_00A8
+// Return size: 4
+define fn2068_00A8
+fn2068_00A8_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2068_00A8
+l2068_00A8:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	sp = sp - 0xC<16>
+	SCZO = cond(sp)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = si
+	ax = Mem0[ds:0x10A8<16>:word16]
+	Mem0[ss:bp - 2<i16>:word16] = ax
+	ax = ax | ax
+	SZ = cond(ax)
+	O = false
+	C = false
+	branch Test(EQ,Z) l2068_00C8
+	// succ:  l2068_00B9 l2068_00C8
+l2068_00B9:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn2017_000F (retsize: 4;)
+	sp = sp + 2<16>
+	SCZO = cond(sp)
+	Mem0[ss:bp - 12<i16>:word16] = ax
+	Mem0[ss:bp - 10<i16>:word16] = dx
+	// succ:  l2068_00C8
+l2068_00C8:
+	call fn2068_007C (retsize: 4;)
+	ax = Mem0[ds:0x10AA<16>:word16]
+	cl = 0xA<8>
+	ax = ax << cl
+	SCZO = cond(ax)
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn3CEE_0747 (retsize: 4;)
+	sp = sp + 2<16>
+	SCZO = cond(sp)
+	Mem0[ss:bp - 6<i16>:word16] = ax
+	Mem0[ss:bp - 4<i16>:word16] = dx
+	ax = ax | dx
+	SZ = cond(ax)
+	O = false
+	C = false
+	branch Test(EQ,Z) l2068_00FA
+	// succ:  l2068_00E6 l2068_00FA
+l2068_00E6:
+	call fn2068_007C (retsize: 4;)
+	v16 = Mem0[ss:bp - 4<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v16
+	v17 = Mem0[ss:bp - 6<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v17
+	call fn3CEE_0732 (retsize: 4;)
+	sp = sp + 4<16>
+	SCZO = cond(sp)
+	goto l2068_0113
+	// succ:  l2068_0113
+l2068_00FA:
+	Mem0[ss:bp - 8<i16>:word16] = 0<16>
+	// succ:  l2068_00FF
+l2068_00FF:
+	bx = Mem0[ss:bp - 8<i16>:word16]
+	bx = bx << 1<16>
+	SCZO = cond(bx)
+	Mem0[ds:bx + 0x10AE<16>:word16] = 0<16>
+	v19 = Mem0[ss:bp - 8<i16>:word16] + 1<16>
+	Mem0[ss:bp - 8<i16>:word16] = v19
+	SZO = cond(v19)
+	SCZO = cond(Mem0[ss:bp - 8<i16>:word16] - 6<16>)
+	branch Test(ULE,CZ) l2068_00FF
+	// succ:  l2068_0113 l2068_00FF
+l2068_0113:
+	Mem0[ds:0x10AC<16>:word16] = 0<16>
+	Mem0[ss:bp - 8<i16>:word16] = 1<16>
+	// succ:  l2068_011E
+l2068_011E:
+	si = Mem0[ss:bp - 8<i16>:word16]
+	si = si << 1<16>
+	SCZO = cond(si)
+	ax = Mem0[ds:si + 0x10AE<16>:word16]
+	dx_ax = Mem0[ds:si + 0x10BC<16>:word16] *u32 ax
+	SCZO = cond(dx_ax)
+	v23 = Mem0[ds:0x10AC<16>:word16] + ax
+	Mem0[ds:0x10AC<16>:word16] = v23
+	SCZO = cond(v23)
+	v24 = Mem0[ss:bp - 8<i16>:word16] + 1<16>
+	Mem0[ss:bp - 8<i16>:word16] = v24
+	SZO = cond(v24)
+	SCZO = cond(Mem0[ss:bp - 8<i16>:word16] - 6<16>)
+	branch Test(ULE,CZ) l2068_011E
+	// succ:  l2068_0138 l2068_011E
+l2068_0138:
+	SCZO = cond(Mem0[ss:bp - 2<i16>:word16] - 0<16>)
+	branch Test(EQ,Z) l2068_014C
+	// succ:  l2068_013E l2068_014C
+l2068_013E:
+	v25 = Mem0[ss:bp - 10<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v25
+	v26 = Mem0[ss:bp - 12<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v26
+	call fn2017_0033 (retsize: 4;)
+	sp = sp + 4<16>
+	SCZO = cond(sp)
+	// succ:  l2068_014C
+l2068_014C:
+	ax = Mem0[ds:0x10AC<16>:word16]
+	si = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	sp = bp
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2068_00A8_exit
+fn2068_00A8_exit:
+
+
+// fn2068_0154
+// Return size: 4
+define fn2068_0154
+fn2068_0154_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l2068_0154
+l2068_0154:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	ax = 0x5B3C<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ds
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	v8 = Mem0[ss:bp + 10<i16>:word16]
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = v8
+	call fn20B2_0E9E (retsize: 4;)
+	sp = sp + 6<16>
+	SCZO = cond(sp)
+	ax = 1<16>
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = ax
+	call fn3CEE_01B7 (retsize: 4;)
+	sp = sp + 2<16>
+	SCZO = cond(sp)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn2068_0154_exit
+fn2068_0154_exit:
+
+

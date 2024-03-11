@@ -1,0 +1,235 @@
+// fn400D_0006
+// Return size: 4
+define fn400D_0006
+fn400D_0006_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l400D_0006
+l400D_0006:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	bx = bp + 14<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	bx = bp + 6<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	call fn3CEE_1472 (retsize: 4;)
+	branch Test(UGE,C) l400D_0026
+	// succ:  l400D_0020 l400D_0026
+l400D_0020:
+	ax = 1<16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn400D_0006_exit
+l400D_0026:
+	ax = ax - ax
+	SCZO = cond(ax)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn400D_0006_exit
+fn400D_0006_exit:
+
+
+// fn400D_0096
+// Return size: 4
+define fn400D_0096
+fn400D_0096_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l400D_0096
+l400D_0096:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	bx = bp + 14<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	bx = bp + 6<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	call fn3CEE_1472 (retsize: 4;)
+	branch Test(ULE,CZ) l400D_00B6
+	// succ:  l400D_00B0 l400D_00B6
+l400D_00B0:
+	ax = 1<16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn400D_0096_exit
+l400D_00B6:
+	ax = ax - ax
+	SCZO = cond(ax)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn400D_0096_exit
+fn400D_0096_exit:
+
+
+// fn400D_00DE
+// Return size: 0
+define fn400D_00DE
+fn400D_00DE_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l400D_00DE
+l400D_00DE:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	bx = 0x603C<16>
+	call fn3CEE_1008 (retsize: 4;)
+	bx = bp + 6<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	call fn3CEE_1472 (retsize: 4;)
+	// succ:  l400D_00F7_in_fn400D_00DE
+l400D_00F7_in_fn400D_00DE:
+	ax = ax + 0x1B8<16>
+	SCZO = cond(ax)
+	v9 = Mem0[ds:di - 53<i16>:byte] + bl
+	Mem0[ds:di - 53<i16>:byte] = v9
+	SCZO = cond(v9)
+	ax = ax - ax
+	SCZO = cond(ax)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn400D_00DE_exit
+fn400D_00DE_exit:
+
+
+// fn3CEE_32E0
+// Return size: 4
+define fn3CEE_32E0
+fn3CEE_32E0_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_32E0
+l3CEE_32E0:
+	__out<byte>(dx, al)
+	SCZO = cond(al - 0x9A<8>)
+	branch Test(ULT,C) l3CEE_32E3_thunk_fn3CEE_32F9
+	goto l3CEE_32E5
+	// succ:  l3CEE_32E5 l3CEE_32E3_thunk_fn3CEE_32F9
+l3CEE_32E0:
+l3CEE_32E3_thunk_fn3CEE_32F9:
+	call fn3CEE_32F9 (retsize: 0;)
+	return
+	// succ:  fn3CEE_32E0_exit
+l3CEE_32E5:
+	__out<byte>(dx, al)
+	SCZO = cond(al - 0x73<8>)
+	// succ:  l400D_00F7
+l400D_00F7:
+	ax = ax + 0x1B8<16>
+	SCZO = cond(ax)
+	v12 = Mem0[ds:di - 53<i16>:byte] + bl
+	Mem0[ds:di - 53<i16>:byte] = v12
+	SCZO = cond(v12)
+	ax = ax - ax
+	SCZO = cond(ax)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CEE_32E0_exit
+fn3CEE_32E0_exit:
+
+
+// fn400D_0102
+// Return size: 4
+define fn400D_0102
+fn400D_0102_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l400D_0102
+l400D_0102:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	bx = 0x603C<16>
+	// succ:  l400D_0105_thunk_fn3CEE_32F9
+l400D_0105_thunk_fn3CEE_32F9:
+	call fn3CEE_32F9 (retsize: 0;)
+	return
+	// succ:  fn400D_0102_exit
+fn400D_0102_exit:
+
+
+// fn3CEE_32F9
+// Return size: 0
+define fn3CEE_32F9
+fn3CEE_32F9_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l3CEE_32F9
+l3CEE_32F9:
+	call fn3CEE_1008 (retsize: 4;)
+	bx = bp + 6<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	call fn3CEE_1472 (retsize: 4;)
+	branch Test(NE,Z) l400D_0122_in_fn3CEE_32F9
+	goto l400D_011D_in_fn3CEE_32F9
+	// succ:  l400D_011D_in_fn3CEE_32F9 l400D_0122_in_fn3CEE_32F9
+l3CEE_32F9:
+	call fn3CEE_1008 (retsize: 4;)
+	bx = bp + 6<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	call fn3CEE_1472 (retsize: 4;)
+	branch Test(NE,Z) l400D_0122
+	// succ:  l400D_011D l400D_0122
+l400D_011D:
+	ax = 1<16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CEE_32F9_exit
+l400D_011D_in_fn3CEE_32F9:
+	ax = 1<16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CEE_32F9_exit
+l400D_0122:
+	ax = ax - ax
+	SCZO = cond(ax)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CEE_32F9_exit
+l400D_0122_in_fn3CEE_32F9:
+	ax = ax - ax
+	SCZO = cond(ax)
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn3CEE_32F9_exit
+fn3CEE_32F9_exit:
+
+
+// fn400D_017E
+// Return size: 4
+define fn400D_017E
+fn400D_017E_entry:
+	sp = fp
+	Top = 0<i8>
+	// succ:  l400D_017E
+l400D_017E:
+	sp = sp - 2<i16>
+	Mem0[ss:sp:word16] = bp
+	bp = sp
+	bx = bp + 6<i16>
+	call fn3CEE_1008 (retsize: 4;)
+	call fn3CEE_12B7 (retsize: 4;)
+	bx = 0x3565<16>
+	dx = 0x4D8E<16>
+	es = dx
+	call fn3CEE_11A9 (retsize: 4;)
+	ax = 0x3565<16>
+	dx = 0x4D8E<16>
+	bp = Mem0[ss:sp:word16]
+	sp = sp + 2<i16>
+	return
+	// succ:  fn400D_017E_exit
+fn400D_017E_exit:
+
+
